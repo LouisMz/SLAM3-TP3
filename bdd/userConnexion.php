@@ -11,14 +11,28 @@ $stmt->execute();
 
 foreach ($stmt as $row){
     if ($login==$row['user'] && $mdp==$row['mdp']){
-        header('Location: ../public/welcome.php ');
+       $connect="true";
         $_SESSION['user']=$login;
     }
     elseif ($login!=$row['user']){
-        header('Location: ../public/inscription.php');
+        $connect="inscri";
     }
     else{
-        header('Location: ../public/Connexion.php');
+        $connect="connec";
     }
 }
+if ($connect=="true")
+{
+    header('Location: ../public/welcome.php ');
+}
+elseif ($connect=="inscri") {
+    header('Location: ../public/inscription.php');
+}
+elseif ($connect=="connec") {
+    header('Location: ../public/Connexion.php');
+}
+else {
+    echo "Probleme";
+}
+
 ?>
