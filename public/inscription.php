@@ -1,8 +1,8 @@
 <?php include 'header.php'; ?>
-<form action="../bdd/createUser.php" method="post">
+<form action="../bdd/inscriptionUser.php" method="post">
     <div>
         <p>Nom d'utilisateur :</p>
-        <input type="text" id="login" name="login" required />
+        <input type="text" id="user" name="user" required />
     </div>
 
     <div>
