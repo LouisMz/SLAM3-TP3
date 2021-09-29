@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+include 'status.php'; 
+@$status = $_GET['status'];?>
 <form action="../bdd/userConnexion.php" method="post">
     <div>
         <p>Nom d'utilisateur :</p>
@@ -7,6 +9,7 @@
 
     <div>
         <p>Mot de Passe :</p>
+        <p><?php status($status) ?></p>
         <input type="password" id="mdp" name="mdp" required />
     </div>
     

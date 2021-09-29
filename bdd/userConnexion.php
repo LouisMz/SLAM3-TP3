@@ -2,7 +2,7 @@
 session_start();
 
 include 'dbConnexion.php';
-
+$connect = "inscri";
 $login = $_POST["login"];
 $mdp = $_POST["mdp"];
 
@@ -29,7 +29,8 @@ elseif ($connect=="inscri") {
     header('Location: ../public/inscription.php');
 }
 elseif ($connect=="connec") {
-    header('Location: ../public/Connexion.php');
+    header('Location: ../public/Connexion.php?status=1');
+    $_SESSION['user']=$login;
 }
 else {
     echo "Probleme";
