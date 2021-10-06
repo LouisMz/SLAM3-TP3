@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+include 'status.php';
+@$status = $_GET['status'];?>
 <form action="../bdd/inscriptionUser.php" method="post">
     <div>
         <p>Nom d'utilisateur :</p>
@@ -12,6 +14,7 @@
 
     <div>
         <p>Confirmer le mot de Passe :</p>
+        <p style="color: red"><?php statusInscri($status) ?></p>
         <input type="password" id="mdpC" name="mdpC" required />
     </div>
     

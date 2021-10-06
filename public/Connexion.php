@@ -9,7 +9,7 @@ include 'status.php';
 
     <div>
         <p>Mot de Passe :</p>
-        <p style="color: red"><?php status($status) ?></p>
+        <p style="color: red"><?php statusConn($status) ?></p>
         <input type="password" id="mdp" name="mdp" required />
     </div>
     
