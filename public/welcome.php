@@ -1,9 +1,18 @@
 <?php
 session_start();
+if(isset($_SESSION['user'])){
+    include 'header.php';
 
-include 'header.php';
+    $user=$_SESSION['user'];
+    echo 'Bienvenue ', $user ,' !!!!';?>
+    <div>
+        <a href="../bdd/deconnexion.php">Déconnexion </a>
+    </div>
 
-$user=$_SESSION['user'];
-echo 'Bienvenue ', $user ,' !!!!';
-
-include 'footer.php'; ?>
+    <?php
+    include 'footer.php'; 
+}
+else{
+    header('Location: connexion.php');
+}
+?>

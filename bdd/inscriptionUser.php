@@ -8,13 +8,18 @@ $login = $_POST['user'];
 $mdp = $_POST['mdp'];
 $mdpC = $_POST['mdpC'];
 $dateC = date('Y-n-j');
+
 $dateA = date('Y-n-j');
+
+$mdpfinal =$mdp.$dateC;
+
+$mdpBdd = password_hash($mdpfinal, PASSWORD_DEFAULT);
 
 
 if ($mdp == $mdpC){
-    $stmt = $conn->prepare("INSERT INTO utilisateur VALUES (?, ?, ?, ?, 0)");
+    $stmt = $conn->prepare("INSERT INTO utilisateur VALUES (?, ?, ?, ?, null)");
     $stmt->bindParam(1, $login);
-    $stmt->bindParam(2, $mdp);
+    $stmt->bindParam(2, $mdpBdd);
     $stmt->bindParam(3, $dateC);
     $stmt->bindParam(4, $dateA);
 
