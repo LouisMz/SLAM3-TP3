@@ -11,7 +11,7 @@ $dateC = date('Y-n-j');
 
 $dateA = date('Y-n-j');
 
-$mdpfinal =$mdp.$dateC;
+$mdpfinal =$mdp.$login;
 
 $mdpBdd = password_hash($mdpfinal, PASSWORD_DEFAULT);
 
@@ -26,6 +26,8 @@ if ($mdp == $mdpC){
     $stmt->execute();
 
     $_SESSION['user']=$login;
+    setcookie("user", $login);
+    setcookie("mdp", $mdpfinal);
 
     header('Location: ../public/welcome.php');
 }
